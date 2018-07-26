@@ -1,0 +1,54 @@
+<h1> Create a Post</h1>
+
+<form method="post" action="/admin/posts/create" enctype="multipart/form-data"> <!-- // enctype is used for image upload purposes-->
+<div class="form-group">
+
+<label for="title">title</label>
+    <input name="title" type="text" class="form-control" id="title" placeholder="enter title" required="required">
+
+</div>
+    <div class="form-group">
+
+        <label for="file">Upload Photo</label>
+        <input name="file" type="file" class="form-control" >
+
+    </div>
+    <div class="form-group">
+        <label for="status">Category</label>
+        <select name="category" id="status" class="form-control">
+            {{#each categories}}
+                <option value="{{id}}">{{name}}</option>
+
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="status">Status</label>
+    <select name="status" id="status" class="form-control">
+        <option value="public">Public</option>
+        <option value="private">Private</option>
+        <option value="draft">Draft</option>
+    </select>
+    </div>
+    <div class="form-group">
+
+        <label for="allowComments">
+        <input name="allowComments" type="checkbox" class="form-control" id="allowComments" >
+        Allow Comments
+        </label>
+    </div>
+    <div class="form-group">
+
+        <label for="body">Body</label>
+        <textarea name="body" cols="150" rows="10" class="body" id="body" required="required" ></textarea>
+
+
+    </div>
+
+
+
+
+<input type="submit" class="btn-primary" value="submit">
+
+
+</form>

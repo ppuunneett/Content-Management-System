@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Home - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog-home.css" rel="stylesheet">
+    <link href="/css/blog-post.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+</head>
+
+<body>
+{{>home/home-nav}}
+
+
+<!-- Page Content -->
+<div class="container">
+    {{#if errors}}
+        {{#each errors}}
+            <div class="alert alert-danger">
+                {{message}}
+            </div>
+        {{/each}}
+
+    {{/if}}
+    {{>home/form-msgs}}
+    {{{body}}}  {{!this body specifies dynamic data}}
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+{{>home/footer}}
+
+<!-- Bootstrap core JavaScript -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

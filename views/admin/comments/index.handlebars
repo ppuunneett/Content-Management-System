@@ -1,0 +1,32 @@
+<h1>Comments</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Status</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {{#each comments}}
+        <td>{{id}}</td>
+        <td>{{user.firstName}}</td>
+            <td><input data-id="{{id}}" type="checkbox" {{#if approveComment}} checked {{/if}} name="approveComment"></td>  <!-- this data-id is customised key in order to get id of specific comment
+     -->
+                <td>{{date}}</td>
+            <td>
+                <form action="/admin/comments/{{id}}?_method=delete" method="post">
+                    <button type="submit" class="btn-danger">Delete</button>
+
+
+                </form>
+
+
+            </td>
+    </tr>
+{{/each}}
+    </tbody>
+</table>

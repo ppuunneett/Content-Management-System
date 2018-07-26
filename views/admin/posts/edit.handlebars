@@ -1,0 +1,61 @@
+<h1> Edit a Post</h1>
+
+<form method="post" action="/admin/posts/edit/{{post.id}}?_method=put" enctype="multipart/form-data">
+    <div class="form-group">
+
+        <label for="title">title</label>
+        <input name="title" type="text" class="form-control" id="title" value="{{post.title}}" required="required">
+
+    </div>
+    <div class="form-group">
+
+        <label for="file">Upload Photo</label>
+        <input name="file" type="file" class="form-control" >
+
+    </div>
+
+    <div class="form-group">
+        <label for="status">Category</label>
+        <select name="category" id="status" class="form-control">
+{{#select post.category}} {{! select is coming from helper fns that allows option values to persist durning editing}}
+{{#each categories}}
+
+                <option value="{{id}}">{{name}}</option>
+
+            {{/each}}
+{{/select}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select name="status" id="status" class="form-control">
+            {{#select post.status}}
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+            <option value="draft">Draft</option>
+            {{/select}}
+            </select>
+    </div>
+    <div class="form-group">
+
+        <label for="allowComments">
+            <input name="allowComments" type="checkbox" {{#if post.allowComments}} checked="checked" {{/if}}class="form-control" id="allowComments" >
+            Allow Comments
+        </label>
+    </div>
+    <div class="form-group">
+
+        <label for="body">Body</label>
+        <textarea name=body" cols="150" rows="10" class="body" id="body" required="required">{{post.body}}</textarea>
+
+
+    </div>
+
+
+
+
+    <input type="submit" class="btn-primary" value="submit">
+
+
+</form>

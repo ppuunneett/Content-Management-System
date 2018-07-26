@@ -1,0 +1,44 @@
+<h1>All posts
+</h1>
+{{#if success_message}}
+<div class="alert alert-success">
+    {{success_message}}
+</div>
+    {{/if}}
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th>View Post</th>
+    <th>Allow Comments</th>
+<th>Date</th>
+    </tr>
+
+    </thead>
+<tbody>
+{{#each posts}} {{!#each function is a kind of for loop in handlebars and we loop through the array and fetch each individual entry--}}
+<tr>
+    <td>{{id}}</td>
+   <!-- <td><img height="50" class="img-responsive" src="/uploads/ alt=""></td>-->
+    <td><img height="50" class="img-responsive" src="/uploads/{{file}}" alt=""></td>
+    <td>{{title}}</td>
+    <td>{{category.name}}</td>
+    <td>{{status}}</td>
+    <td>{{allowComments}}</td>
+    <td><a href="/post/{{id}}">View</a> </td>
+    <td>{{date}}</td>
+
+
+
+</tr>
+{{/each}}
+</tbody>
+
+
+
+</table>
