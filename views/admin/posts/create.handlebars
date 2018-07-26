@@ -1,54 +1,71 @@
-<h1> Create a Post</h1>
+<h3 >Create Post</h3>
 
-<form method="post" action="/admin/posts/create" enctype="multipart/form-data"> <!-- // enctype is used for image upload purposes-->
-<div class="form-group">
 
-<label for="title">title</label>
-    <input name="title" type="text" class="form-control" id="title" placeholder="enter title" required="required">
+{{#each errors}}
 
-</div>
-    <div class="form-group">
+    <div class="alert alert-danger">
 
-        <label for="file">Upload Photo</label>
-        <input name="file" type="file" class="form-control" >
+        {{message}}
 
     </div>
+
+
+
+{{/each}}
+
+
+
+<form action="/admin/posts/create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input required name="title" type="text" class="form-control" id="title" placeholder="Enter title" >
+    </div>
+
+    <div class="form-group">
+        <label for="file">File Upload</label>
+        <input type="file" name="file" class="form-control" >
+    </div>
+
     <div class="form-group">
         <label for="status">Category</label>
         <select name="category" id="status" class="form-control">
+
+
             {{#each categories}}
+
                 <option value="{{id}}">{{name}}</option>
 
             {{/each}}
+
         </select>
     </div>
+
+
     <div class="form-group">
         <label for="status">Status</label>
-    <select name="status" id="status" class="form-control">
-        <option value="public">Public</option>
-        <option value="private">Private</option>
-        <option value="draft">Draft</option>
-    </select>
+        <select name="status" id="status" class="form-control">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+            <option value="draft">Draft</option>
+        </select>
     </div>
-    <div class="form-group">
 
-        <label for="allowComments">
-        <input name="allowComments" type="checkbox" class="form-control" id="allowComments" >
-        Allow Comments
+
+
+    <div class="form-check">
+        <label for="allowComments" class="form-check-label">
+            <input name="allowComments" type="checkbox" class="form-check-input" id="allowComments">
+            Allow Comments
         </label>
     </div>
+
     <div class="form-group">
-
         <label for="body">Body</label>
-        <textarea name="body" cols="150" rows="10" class="body" id="body" required="required" ></textarea>
-
-
+        <textarea required  name="body" cols="30" rows="10" class="form-control" id="body" placeholder="Enter Description"></textarea>
     </div>
 
 
-
-
-<input type="submit" class="btn-primary" value="submit">
+    <button type="submit" class="btn btn-primary">Create Post</button>
 
 
 </form>

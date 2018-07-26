@@ -14,7 +14,7 @@ const upload = require('express-fileupload');
 const flash = require('connect-flash');
 const session=require('express-session');
 const passport=require('passport');
-mongoose.connect('mongodb://localhost:27017/cms',{useMongoClient:true}).then(db=>{
+mongoose.connect('mongodb://localhost:27017/cms',{useNewUrlParser:true}).then(db=>{
     console.log('mongo connected');
 }).catch(error=>console.log(error));
 
