@@ -11,15 +11,15 @@ const PostSchema = new Schema({
         require:true
     },
     status:{
-type:String,
+        type:String,
         default:'public'
     },
     allowComments:{
-type:Boolean,
+        type:Boolean,
         require:true
     },
     body:{
-type:String,
+        type:String,
         require:true
     },
     file:{

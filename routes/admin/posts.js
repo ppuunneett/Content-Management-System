@@ -154,7 +154,7 @@ router.post('/create', function (req, res) {
     }
 
     const newPost = new Post({
-user:req.user.id,
+        user:req.user.id,
         title: req.body.title,
         status: req.body.status,
         allowComments: allowComments, // instead of passing values from from we pass them from above check becooz by default req.body.allowcomments is gonna return on instead of a boolean
@@ -169,7 +169,7 @@ user:req.user.id,
         req.flash('success_message',`post${savedPost.title}was created`);
         res.redirect('/admin/posts');
     }).catch(error => {
-        console.log("could not save post");
+        console.log(error); //mongo error :11000
     })
 });
 

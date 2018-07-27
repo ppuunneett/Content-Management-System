@@ -12,9 +12,11 @@ const bodyParser= require('body-parser');
 const methodOverride= require('method-override');
 const upload = require('express-fileupload');
 const flash = require('connect-flash');
+const {mongoDbUrl} = require('./config/database')
 const session=require('express-session');
 const passport=require('passport');
-mongoose.connect('mongodb://localhost:27017/cms',{useNewUrlParser:true}).then(db=>{
+
+mongoose.connect(mongoDbUrl,{useNewUrlParser:true}).then(db=>{
     console.log('mongo connected');
 }).catch(error=>console.log(error));
 
@@ -64,6 +66,6 @@ app.set('view engine','handlebars');
 
 
 
-app.listen(5000,function(req,res){
+app.listen(4080,function(req,res){
     console.log("server is working");
 })
