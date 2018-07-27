@@ -58,14 +58,8 @@ app.engine('handlebars',exphbs({defaultLayout:'home',helpers:{select:select}}));
 app.set('view engine','handlebars');
 
 
+const port =process.env.PORT || 4080;
 
-
-
-
-
-
-
-
-app.listen(4080,function(req,res){
-    console.log("server is working");
+app.listen(port,function(req,res){
+    console.log(`server is working on ${port}`);
 })
